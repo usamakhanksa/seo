@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 SEO Prompt Library — Rebuilt for Real Search Guidance</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.8/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.0.6/index.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a28;--bg4:#222236;
+--text:#e8e8f0;--text2:#a0a0b8;--text3:#6a6a82;
+--accent:#7c5cfc;--accent2:#5c8cfc;--accent3:#fc5c8c;
+--grad:linear-gradient(135deg,#7c5cfc 0%,#5c8cfc 50%,#5cfcbc 100%);
+--grad2:linear-gradient(135deg,#fc5c8c 0%,#7c5cfc 100%);
+--card:#14141f;--border:#2a2a3e;--radius:16px;
+--shadow:0 8px 32px rgba(0,0,0,.4);
+}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--accent) var(--bg2)}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px}
+
+/* NAV */
+.topnav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,15,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:all .3s}
+.topnav.scrolled{background:rgba(10,10,15,.95);box-shadow:0 4px 20px rgba(0,0,0,.5)}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+.nav-logo{font-size:1.1rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-.02em}
+.nav-links{display:flex;gap:4px;flex-wrap:wrap}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.8rem;font-weight:500;padding:6px 12px;border-radius:8px;transition:all .25s}
+.nav-links a:hover,.nav-links a.active{color:var(--text);background:var(--bg3)}
+.nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;width:800px;height:800px;background:radial-gradient(circle,rgba(124,92,252,.15) 0%,transparent 70%);top:-200px;left:-200px;animation:float 15s ease-in-out infinite}
+.hero::after{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(92,140,252,.12) 0%,transparent 70%);bottom:-100px;right:-100px;animation:float 12s ease-in-out infinite reverse}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,-40px)}}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--bg3);border:1px solid var(--border);padding:8px 20px;border-radius:50px;font-size:.8rem;color:var(--accent);font-weight:600;margin-bottom:32px;animation:fadeUp .8s ease}
+.hero-badge span{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-size:clamp(2.2rem,6vw,4.5rem);font-weight:900;line-height:1.08;letter-spacing:-.03em;margin-bottom:24px;animation:fadeUp .8s ease .1s both}
+.hero h1 .grad{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:clamp(1rem,2vw,1.25rem);color:var(--text2);max-width:700px;margin:0 auto 40px;animation:fadeUp .8s ease .2s both}
+.hero-stats{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s ease .3s both}
+.hero-stat{text-align:center}
+.hero-stat .num{font-size:2.5rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-stat .label{font-size:.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* SECTIONS */
+.section{padding:80px 24px;max-width:1200px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:56px}
+.section-tag{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);background:rgba(124,92,252,.1);padding:6px 16px;border-radius:50px;margin-bottom:16px}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-.02em;margin-bottom:16px}
+.section-desc{color:var(--text2);max-width:700px;margin:0 auto;font-size:1.05rem}
+
+/* INTRO CARDS */
+.intro-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-bottom:60px}
+.intro-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px;transition:all .3s;position:relative;overflow:hidden}
+.intro-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:var(--shadow)}
+.intro-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);opacity:0;transition:opacity .3s}
+.intro-card:hover::before{opacity:1}
+.intro-card .icon{width:48px;height:48px;border-radius:12px;background:rgba(124,92,252,.12);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px}
+.intro-card h3{font-size:1.15rem;font-weight:700;margin-bottom:12px}
+.intro-card p{color:var(--text2);font-size:.92rem;line-height:1.7}
+
+/* AUDIT SECTION */
+.audit-block{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:32px}
+.audit-block h3{font-size:1.3rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.audit-block p{color:var(--text2);font-size:.95rem;margin-bottom:12px}
+.audit-block .highlight{color:var(--accent);font-weight:600}
+.correction-list{list-style:none;display:grid;gap:16px;margin-top:20px}
+.correction-list li{display:flex;gap:12px;align-items:flex-start;padding:16px;background:var(--bg3);border-radius:12px;font-size:.92rem;color:var(--text2)}
+.correction-list li .num{min-width:28px;height:28px;background:var(--grad);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;color:#fff}
+
+/* CATEGORY TABS */
+.cat-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.cat-tab{padding:10px 24px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text2);font-size:.85rem;font-weight:600;cursor:pointer;transition:all .3s;font-family:inherit}
+.cat-tab:hover{border-color:var(--accent);color:var(--text)}
+.cat-tab.active{background:var(--grad);border-color:transparent;color:#fff}
+
+/* PROMPT CARDS */
+.prompts-container{display:none}
+.prompts-container.active{display:block}
+.prompt-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:24px;overflow:hidden;transition:all .3s}
+.prompt-card:hover{border-color:rgba(124,92,252,.4)}
+.prompt-card.open{border-color:var(--accent)}
+.prompt-header{display:flex;align-items:center;gap:16px;padding:24px 28px;cursor:pointer;transition:background .2s}
+.prompt-header:hover{background:var(--bg3)}
+.prompt-id{min-width:56px;height:36px;background:var(--grad);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;color:#fff;letter-spacing:.02em}
+.prompt-header h3{flex:1;font-size:1.05rem;font-weight:700}
+.prompt-toggle{width:32px;height:32px;border-radius:8px;background:var(--bg3);display:flex;align-items:center;justify-content:center;transition:all .3s;font-size:.9rem;color:var(--text2)}
+.prompt-card.open .prompt-toggle{transform:rotate(180deg);color:var(--accent)}
+.prompt-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
+.prompt-card.open .prompt-body{max-height:3000px}
+.prompt-content{padding:0 28px 28px}
+.prompt-text{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:20px;font-family:'JetBrains Mono',monospace;font-size:.82rem;line-height:1.8;color:var(--text2);margin-bottom:16px;position:relative;white-space:pre-wrap;word-break:break-word}
+.prompt-text .placeholder{color:var(--accent);font-weight:600}
+.copy-btn{position:absolute;top:12px;right:12px;background:var(--bg3);border:1px solid var(--border);color:var(--text2);padding:6px 14px;border-radius:8px;font-size:.72rem;font-weight:600;cursor:pointer;transition:all .25s;font-family:inherit}
+.copy-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.copy-btn.copied{background:#22c55e;color:#fff;border-color:#22c55e}
+.prompt-why{padding:16px 20px;background:rgba(124,92,252,.06);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;font-size:.9rem;color:var(--text2)}
+.prompt-why strong{color:var(--accent);font-weight:700}
+
+/* RULE BOX */
+.rule-box{background:linear-gradient(135deg,rgba(124,92,252,.08),rgba(92,140,252,.08));border:1px solid rgba(124,92,252,.2);border-radius:var(--radius);padding:32px;margin:40px 0;text-align:center}
+.rule-box h3{font-size:1.1rem;font-weight:700;margin-bottom:12px;color:var(--accent)}
+.rule-box p{color:var(--text2);font-size:.92rem;max-width:800px;margin:0 auto;font-style:italic}
+
+/* REFERENCES */
+.refs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.ref-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all .3s;text-decoration:none;color:inherit;display:block}
+.ref-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.ref-num{font-size:.7rem;font-weight:800;color:var(--accent);margin-bottom:8px}
+.ref-title{font-size:.85rem;font-weight:600;margin-bottom:6px;line-height:1.4}
+.ref-url{font-size:.72rem;color:var(--text3);word-break:break-all}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;color:var(--text3);font-size:.85rem}
+
+/* SCROLL ANIM */
+.reveal{opacity:0;transform:translateY(40px);transition:all .7s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* BACK TO TOP */
+.btt{position:fixed;bottom:32px;right:32px;width:48px;height:48px;border-radius:14px;background:var(--grad);border:none;color:#fff;font-size:1.2rem;cursor:pointer;opacity:0;transform:translateY(20px);transition:all .3s;z-index:999;box-shadow:0 4px 20px rgba(124,92,252,.4)}
+.btt.show{opacity:1;transform:translateY(0)}
+.btt:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(124,92,252,.5)}
+
+/* SEARCH */
+.search-wrap{max-width:500px;margin:0 auto 40px;position:relative}
+.search-wrap input{width:100%;padding:14px 20px 14px 48px;background:var(--bg3);border:1px solid var(--border);border-radius:14px;color:var(--text);font-size:.95rem;font-family:inherit;transition:all .3s;outline:none}
+.search-wrap input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(124,92,252,.15)}
+.search-wrap input::placeholder{color:var(--text3)}
+.search-wrap .search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:1.1rem}
+
+/* COUNTER */
+.prompt-count{text-align:center;margin-bottom:24px;font-size:.85rem;color:var(--text3)}
+.prompt-count span{color:var(--accent);font-weight:700}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg2);flex-direction:column;padding:16px;border-bottom:1px solid var(--border)}
+.nav-links.open{display:flex}
+.nav-toggle{display:block}
+.hero-stats{gap:20px}
+.hero-stat .num{font-size:2rem}
+.section{padding:60px 16px}
+.prompt-header{padding:18px 20px}
+.prompt-content{padding:0 20px 20px}
+.intro-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav" id="topnav">
+<div class="nav-inner">
+<div class="nav-logo">⚡ 2026 SEO Prompts</div>
+<button class="nav-toggle" id="navToggle">☰</button>
+<div class="nav-links" id="navLinks">
+<a href="#hero">Home</a>
+<a href="#changes">What Changed</a>
+<a href="#audit">Audit</a>
+<a href="#prompts">Prompts</a>
+<a href="#references">References</a>
+</div>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+<div>
+<div class="hero-badge"><span></span> Updated for 2026 Search Landscape</div>
+<h1>The <span class="grad">SEO Prompt Library</span><br>Rebuilt for Real Search Guidance</h1>
+<p>A comprehensive, modern prompt pack reflecting Google's 2025–2026 core &amp; spam updates, AI Overviews, helpful content integration, and current technical fundamentals. No outdated tactics. No snake oil.</p>
+<div class="hero-stats">
+<div class="hero-stat"><div class="num">40</div><div class="label">Expert Prompts</div></div>
+<div class="hero-stat"><div class="num">5</div><div class="label">Categories</div></div>
+<div class="hero-stat"><div class="num">39</div><div class="label">References</div></div>
+<div class="hero-stat"><div class="num">2026</div><div class="label">Current Year</div></div>
+</div>
+</div>
+</section>
+
+<!-- WHAT CHANGED -->
+<section class="section" id="changes">
+<div class="section-header reveal">
+<div class="section-tag">What Changed by 2026</div>
+<h2 class="section-title">A Moving Target, Not a Frozen Checklist</h2>
+<p class="section-desc">Google's public ranking history shows continued major changes through 2025 and 2026. Here's what matters for your prompt strategy.</p>
+</div>
+<div class="intro-grid">
+<div class="intro-card reveal">
+<div class="icon">🔄</div>
+<h3>Core &amp; Spam Updates</h3>
+<p>March 2026 core and spam updates, May 2026 core update, June 2026 spam update, plus earlier 2025 core and spam updates. The ranking landscape keeps evolving—your prompts must evolve too.</p>
+</div>
+<div class="intro-card reveal">
+<div class="icon">🎯</div>
+<h3>Helpful Content Is Baseline</h3>
+<p>Google's "helpful content" system became part of the core ranking systems in March 2024. "Optimize for helpful content" is no longer a niche tactic—it is the baseline for all modern SEO work.</p>
+</div>
+<div class="intro-card reveal">
+<div class="icon">🤖</div>
+<h3>AI Search: Same Fundamentals</h3>
+<p>Google's guidance confirms the same foundational SEO best practices apply to AI Overviews and AI Mode. No extra technical requirements, no special schema, no "AI file" needed.</p>
+</div>
+<div class="intro-card reveal">
+<div class="icon">❌</div>
+<h3>Outdated Tactics Removed</h3>
+<p>Google removed FAQ rich results in 2026. LLMs.txt files are confirmed as not affecting rankings. Stop treating these as shortcuts—they're dead ends.</p>
+</div>
+<div class="intro-card reveal">
+<div class="icon">📱</div>
+<h3>Technical Fundamentals</h3>
+<p>Mobile-first indexing, JavaScript crawl-render-index phases, Core Web Vitals (INP under 200ms), robots.txt for crawl management only, and sitemap submission as hints only.</p>
+</div>
+<div class="intro-card reveal">
+<div class="icon">📊</div>
+<h3>Measurement Matters</h3>
+<p>AI feature traffic is included in Search Console under Web search type. Bing's IndexNow is central for freshness. Your prompts must include measurement and post-publication tracking.</p>
+</div>
+</div>
+</section>
+
+<!-- AUDIT -->
+<section class="section" id="audit">
+<div class="section-header reveal">
+<div class="section-tag">Source Audit</div>
+<h2 class="section-title">Audit of the Original Prompt Pack</h2>
+<p class="section-desc">The original pack covers the right buckets—but many prompts are too generic for 2026 and reflect older SEO habits.</p>
+</div>
+
+<div class="audit-block reveal">
+<h3>🔍 What's Right</h3>
+<p>The original pack covers <span class="highlight">keyword research, on-page SEO, technical SEO, and content writing</span>. That's a solid starting structure. The broad categories are sound.</p>
+</div>
+
+<div class="audit-block reveal">
+<h3>⚠️ What Needs Correction</h3>
+<p>Many prompts lean heavily on generic ideation, rigid title/meta "limits," and light technical scopes. Modern documentation puts more emphasis on helpful people-first content, search appearance accuracy, mobile parity, crawlable internal links, canonicalization, JavaScript rendering, structured data validation, and post-publication measurement.</p>
+<div class="correction-list">
+<li><div class="num">1</div><div><strong>Title tags &amp; meta descriptions</strong> should not be treated like fixed-character formulas. Google says titles should be descriptive and concise, but they're truncated as needed. Meta descriptions have no hard length limit; snippets are primarily generated from page content.</div></li>
+<li><div class="num">2</div><div><strong>"Optimized URLs"</strong> should not imply slugs alone communicate hierarchy. Google uses links and site relationships to infer importance. Readable URLs help, but internal linking and crawlable navigation matter more.</div></li>
+<li><div class="num">3</div><div><strong>Technical prompts</strong> covering only sitemaps and robots.txt are incomplete in 2026. Canonicalization, mobile-first indexing, JavaScript rendering, structured data, and Core Web Vitals are all part of the default workflow.</div></li>
+</div>
+</div>
+
+<div class="audit-block reveal">
+<h3>🆕 New Essential Categories</h3>
+<p>A modern prompt library must include prompts for:</p>
+<div class="correction-list">
+<li><div class="num">✓</div><div>Measuring opportunities from Search Console and GA4</div></li>
+<li><div class="num">✓</div><div>Non-commodity content and first-hand evidence</div></li>
+<li><div class="num">✓</div><div>Author and organization entities</div></li>
+<li><div class="num">✓</div><div>AI-search inclusion without snake-oil tactics</div></li>
+<li><div class="num">✓</div><div>Post-update diagnosis workflows</div></li>
+<li><div class="num">✓</div><div>Bing/IndexNow freshness management</div></li>
+</div>
+</div>
+
+<div class="rule-box reveal">
+<h3>⚡ Universal Rule — Prepend to Every Prompt</h3>
+<p>"If you do not have live data, clearly label estimates and tell me what should be verified in Search Console, Analytics, Trends, or a crawler instead of inventing numbers."</p>
+</div>
+</section>
+
+<!-- PROMPTS -->
+<section class="section" id="prompts">
+<div class="section-header reveal">
+<div class="section-tag">The Complete Library</div>
+<h2 class="section-title">40 Expert SEO Prompts for 2026</h2>
+<p class="section-desc">Click any prompt to expand it. Copy the full text with one click. Every prompt is grounded in current Google and Bing documentation.</p>
+</div>
+
+<div class="search-wrap reveal">
+<span class="search-icon">🔍</span>
+<input type="text" id="searchInput" placeholder="Search prompts by keyword, ID, or topic...">
+</div>
+
+<div class="cat-tabs reveal">
+<button class="cat-tab active" data-cat="all">All Prompts (40)</button>
+<button class="cat-tab" data-cat="kr">🔑 Keyword Research (7)</button>
+<button class="cat-tab" data-cat="op">📝 On-Page &amp; SERP (7)</button>
+<button class="cat-tab" data-cat="ts">⚙️ Technical SEO (10)</button>
+<button class="cat-tab" data-cat="cw">✍️ Content &amp; Entities (8)</button>
+<button class="cat-tab" data-cat="mx">📊 Measurement &amp; AI (8)</button>
+</div>
+
+<div class="prompt-count reveal">Showing <span id="visibleCount">40</span> of 40 prompts</div>
+
+<!-- KEYWORD RESEARCH -->
+<div class="prompts-container active" data-cat="kr" id="cat-kr">
+
+<div class="prompt-card" data-search="topic universe business clusters entities">
+<div class="prompt-header">
+<div class="prompt-id">KR-01</div>
+<h3>Build a Business-Aligned Topic Universe</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Act as a senior SEO strategist for [brand/site] in [country/language]. Based on these inputs — products/services: [list], audience segments: [list], conversion goals: [list], and known restrictions: [list] — generate 40 topic clusters instead of simple keywords. For each cluster, include: search intent, core entity, likely funnel stage, suggested pillar page, 5 supporting article ideas, and why the cluster matters commercially. Exclude topics that are off-brand, low-trust, or only loosely related.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It forces the model to think in clusters, entities, and business value, not just keyword volume.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="intent serp expectations classify query">
+<div class="prompt-header">
+<div class="prompt-id">KR-02</div>
+<h3>Map Intent and SERP Expectations</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">For these target queries — [paste list] — classify each one into primary intent: informational, commercial investigation, transactional, navigational, or local. Then predict the most likely SERP expectations for each query, such as comparison content, tutorial, category page, product page, video, image-heavy content, or local results. Tell me which page type I should create or improve.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> 2026 SEO is not just about keywords; it's about matching the result type users and search systems expect.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="content gap competitor analysis missing weak">
+<div class="prompt-header">
+<div class="prompt-id">KR-03</div>
+<h3>Run a Realistic Content Gap Analysis</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Compare [my site] against [competitor 1], [competitor 2], and [competitor 3]. Identify topic clusters they cover well that my site either does not cover or covers weakly. Separate the findings into: missing topics, weak topics, outdated topics, and topics I should ignore because they are not relevant to my brand or audience. Prioritize by business relevance first, then likely search demand, then competitive difficulty.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It avoids the bad habit of copying every competitor topic without relevance filtering.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="search console winning opportunities positions ctr">
+<div class="prompt-header">
+<div class="prompt-id">KR-04</div>
+<h3>Pull Winning Opportunities from Search Console</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Using this Google Search Console export for the last [X] months, identify pages and queries with the highest upside. Focus on: pages ranking roughly positions [5–20] with good impressions, pages with below-expected CTR, and queries where multiple pages may be competing. Return a prioritized table with: page, query, issue type, likely fix, expected impact, and whether the page should be refreshed, consolidated, or left alone.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It turns keyword research into performance-driven optimization.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="trend seasonality calendar evergreen rising declining">
+<div class="prompt-header">
+<div class="prompt-id">KR-05</div>
+<h3>Add Trend and Seasonality Intelligence</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">For these topics or products — [list] — create a seasonal opportunity map for [country]. Tell me which topics are evergreen, which are seasonal, which are rising, and which are declining. Then recommend a 12-month publishing calendar with publish windows, refresh windows, and promotional windows. If exact trend data is unavailable, state what should be verified in Google Trends.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It reflects Google's guidance to use Trends for rising and seasonal demand, not just static keyword lists.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="localize multilingual translation country language">
+<div class="prompt-header">
+<div class="prompt-id">KR-06</div>
+<h3>Localize Keyword Opportunities Properly</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Take these English keyword clusters — [list] — and adapt them for [target market/language]. Do not translate literally. Instead, suggest how real search behavior may differ by country, spelling, measurement system, pricing language, local regulations, or cultural terms. Separate exact translations from true local search variants, and explain which version should be the canonical content angle.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It aligns keyword work with multilingual and local-market realities rather than word-for-word translation.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="cannibalization consolidation duplicate intent merge">
+<div class="prompt-header">
+<div class="prompt-id">KR-07</div>
+<h3>Detect Cannibalization and Consolidation Gaps</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Using this list of URLs, target keywords, and Search Console queries — [paste/export] — identify likely cannibalization problems. Show where multiple pages appear to target the same intent, where one new page should replace several thin pages, and where internal links or canonicals may be enough without merging content. Recommend the safest consolidation plan.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It moves keyword research closer to site architecture and index quality.</div>
+</div></div>
+</div>
+
+</div>
+
+<!-- ON-PAGE & SERP -->
+<div class="prompts-container active" data-cat="op" id="cat-op">
+
+<div class="prompt-card" data-search="url slug readable architecture site structure">
+<div class="prompt-header">
+<div class="prompt-id">OP-01</div>
+<h3>Generate a Search-Friendly URL Recommendation</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">I am creating a page about [topic] for [audience/country]. Suggest 5 SEO-friendly URL slug options that are readable, durable, and aligned with the site structure [paste structure if known]. Avoid unnecessary dates, fragile parameters, and vague words. Then recommend the best final slug and explain how it should fit into the wider site architecture.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It keeps the slug readable without pretending the slug alone solves architecture.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="title link click clarity rewrite descriptive concise">
+<div class="prompt-header">
+<div class="prompt-id">OP-02</div>
+<h3>Rewrite Title Links for Click Clarity</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">For this page — topic: [topic], intent: [intent], audience: [audience], current title: [title] — write 10 improved title options. Make them descriptive, concise, non-spammy, and clearly differentiated. Include 3 safer versions, 3 benefit-led versions, 2 comparison-style versions, and 2 brand-led versions. Then explain which one is best and why Google might prefer or rewrite weak alternatives.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It reflects Google's emphasis on clarity and anti-keyword-stuffing, not arbitrary formulas.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="meta description snippet page content summarize">
+<div class="prompt-header">
+<div class="prompt-id">OP-03</div>
+<h3>Write Meta Descriptions That Match the Page</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Using the page summary below — [paste page summary] — create 6 meta description options that accurately summarize the page, highlight the most decision-useful details, and avoid vague filler or keyword stuffing. For each option, tell me which searcher intent it best fits. If the page content is too weak to support a strong snippet, say so and tell me what the page is missing.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It respects the fact that Google often uses page content for snippets and only uses the meta description when it helps.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="heading architecture h1 h2 h3 outline structure">
+<div class="prompt-header">
+<div class="prompt-id">OP-04</div>
+<h3>Build a Heading Architecture Before Writing</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Create an H1–H3 outline for a page targeting [primary query] and [secondary topics]. The outline should reflect the user journey from basic understanding to decision-making. Avoid repetitive near-duplicate headings. Mark which section is best for a quick answer block, which sections deserve examples, and which sections should include supporting media.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It turns headings into information architecture rather than just keyword placements.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="answer block featured snippet ai overview passage">
+<div class="prompt-header">
+<div class="prompt-id">OP-05</div>
+<h3>Optimize for Answer Blocks and AI-Supporting Passages</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Take this draft or outline — [paste] — and identify the sections most likely to support featured snippets, AI Overviews, or other answer-style retrieval. Rewrite only those sections into clearer, self-contained answer blocks that directly address the question, use precise language, and stay faithful to the page's larger argument. Do not invent facts. Show before-and-after wording.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> Google says AI features are still grounded in standard SEO and snippet eligibility, so concise answer blocks matter more than gimmicks.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="internal links anchor text crawlable html navigation">
+<div class="prompt-header">
+<div class="prompt-id">OP-06</div>
+<h3>Plan Internal Links with Crawlable Anchor Text</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">For this page — [URL/topic] — propose an internal linking plan using only crawlable HTML link patterns. Suggest 10 internal link opportunities from related pages, the ideal anchor text for each, and the user reason for clicking each link. Avoid generic anchors like 'click here' and avoid keyword-stuffed anchors.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> Google explicitly says crawlable &lt;a href&gt; links and descriptive anchors help users and crawlers understand page relationships.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="homepage search appearance site name organization favicon">
+<div class="prompt-header">
+<div class="prompt-id">OP-07</div>
+<h3>Improve Homepage Search Appearance Signals</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Audit my homepage search appearance signals using this input — homepage copy: [paste], site name: [preferred name], alternative brand forms: [list], logo asset notes: [notes]. Recommend improvements for homepage title, site-name consistency, favicon readiness, WebSite structured data, and Organization structured data so Google can better disambiguate the brand and display the preferred site name.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> Site names, logos, and organization details are now documented parts of modern search appearance work.</div>
+</div></div>
+</div>
+
+</div>
+
+<!-- TECHNICAL SEO -->
+<div class="prompts-container active" data-cat="ts" id="cat-ts">
+
+<div class="prompt-card" data-search="robots.txt audit crawl management block deindexing">
+<div class="prompt-header">
+<div class="prompt-id">TS-01</div>
+<h3>Audit Robots.txt Correctly</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Review this robots.txt file — [paste file] — and tell me whether it is being used correctly for crawl management. Flag rules that accidentally block important content, CSS, JavaScript, images, or mobile pages. Also identify any places where the site appears to be using robots.txt as a deindexing method and recommend safer alternatives such as noindex or access controls where appropriate.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It matches Google's documented use of robots.txt for crawl management, not deindexing.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="sitemap xml strategy index canonical">
+<div class="prompt-header">
+<div class="prompt-id">TS-02</div>
+<h3>Design a Realistic Sitemap Strategy</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Design an XML sitemap strategy for a site with these sections: [list sections]. Recommend whether to use one sitemap or a sitemap index, which content types deserve dedicated sitemaps, and how to handle canonical URLs, redirected URLs, excluded URLs, and non-indexable pages. Also tell me what should be submitted in Search Console and what should only live in site generation logic.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It treats sitemaps as structured crawl signals, not as magical indexing guarantees.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="canonicalization canonical duplicate redirect consolidate">
+<div class="prompt-header">
+<div class="prompt-id">TS-03</div>
+<h3>Diagnose Canonicalization Problems</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Using this set of URLs, canonicals, redirect rules, and duplicate templates — [paste] — identify canonicalization issues. Flag conflicting canonical signals, parameter duplicates, pagination edge cases, and pages that should use self-referential canonicals. Tell me when rel=canonical, when redirects, and when content consolidation is the correct fix.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> Google's documentation is explicit that canonicals need clear, aligned signals and should not be replaced with robots or removal tricks.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="faceted navigation filter url bloat ecommerce parameters">
+<div class="prompt-header">
+<div class="prompt-id">TS-04</div>
+<h3>Fix Faceted Navigation and Filter URL Bloat</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Audit this ecommerce or directory URL pattern — [paste examples] — for crawl waste, duplicate intent, and unstable parameters. Recommend which filter combinations deserve indexable landing pages, which URLs should remain crawlable but non-indexable, which should consolidate to canonicals, and how the internal link paths should surface the most important pages.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It's tailored to one of the most common technical SEO failure points on large sites.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="mobile parity indexing desktop mobile version">
+<div class="prompt-header">
+<div class="prompt-id">TS-05</div>
+<h3>Check Mobile Parity for Indexing</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Compare the desktop and mobile versions of this page or template — [paste rendered output or notes]. Identify differences in core content, headings, metadata, structured data, media, internal links, and robots directives. Tell me which differences are harmless and which can hurt mobile-first indexing.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> Google still indexes based on the mobile version, so parity prompts are essential.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="javascript rendering ssr hydration crawl render index">
+<div class="prompt-header">
+<div class="prompt-id">TS-06</div>
+<h3>Audit JavaScript Rendering Risks</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Review this JavaScript-heavy page setup — [paste framework notes, rendered HTML, and raw HTML if available] — and identify what content or links might be invisible before rendering, what canonical or robots risks exist, and what should be server-rendered, hydrated, or exposed in raw HTML. Include a testing checklist using rendered HTML inspection.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It tracks Google's documented crawl-render-index model for JavaScript.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="crawlable architecture site structure orphan internal links">
+<div class="prompt-header">
+<div class="prompt-id">TS-07</div>
+<h3>Strengthen Crawlable Site Architecture</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Map the ideal crawl path for this site structure — [paste sitemap, nav, or URL tree]. Show how homepage, category, subcategory, and detail pages should link to each other using crawlable HTML links. Identify orphan pages, over-deep pages, thin hub pages, and pages that should receive stronger internal-link prominence.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> Google says it infers relative importance from links more than from URL shape alone.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="core web vitals lcp inp cls page experience performance">
+<div class="prompt-header">
+<div class="prompt-id">TS-08</div>
+<h3>Prioritize Core Web Vitals and Page Experience</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Given these performance diagnostics — [paste PageSpeed / CrUX / Search Console CWV issues] — create a prioritized remediation plan. Split fixes into LCP, INP, CLS, intrusive interstitials, and media/bundle issues. For each fix, tell me the likely user benefit, engineering complexity, and what should be tested first.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It aligns the prompt with today's page-experience metrics, including INP.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="internationalization hreflang multilingual language locale">
+<div class="prompt-header">
+<div class="prompt-id">TS-09</div>
+<h3>Audit Internationalization and Hreflang Setup</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Review this multilingual site plan — languages/locales: [list], URL structure: [pattern], current alternate annotations: [paste if available]. Recommend the cleanest hreflang implementation method for this site — HTML, HTTP headers, or sitemap — and explain what each page set must contain, including self-references, full alternate sets, and fallbacks where useful.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> Google says the three implementation methods are equivalent, so the best choice is the one you can manage accurately.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="bing indexnow freshness discovery xml sitemap">
+<div class="prompt-header">
+<div class="prompt-id">TS-10</div>
+<h3>Add Bing and IndexNow Freshness Planning</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Create a freshness and discovery workflow for Google and Bing using XML sitemaps, internal links, and IndexNow. The site type is [news/ecommerce/classifieds/docs/etc.] and the update frequency is [describe]. Tell me which URL changes should trigger immediate notifications, which should rely on sitemap updates, and how to avoid noisy or low-value submissions.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It reflects Bing's 2026 guidance that SEO fundamentals also power Copilot and grounding, with IndexNow as an important freshness layer.</div>
+</div></div>
+</div>
+
+</div>
+
+<!-- CONTENT & ENTITIES -->
+<div class="prompts-container active" data-cat="cw" id="cat-cw">
+
+<div class="prompt-card" data-search="non-commodity content brief unique first-hand evidence">
+<div class="prompt-header">
+<div class="prompt-id">CW-01</div>
+<h3>Build a Non-Commodity Content Brief</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Create a content brief for [topic] that explicitly avoids commodity content. I want: target audience, primary questions, unique angle, required first-hand evidence, expert inputs to collect, visual assets to create, competitor angles to avoid copying, and sections where original examples or data would make the page stronger.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It pushes the model toward uniqueness and first-hand value instead of regurgitation.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="first-hand experience interview expert subject matter">
+<div class="prompt-header">
+<div class="prompt-id">CW-02</div>
+<h3>Extract First-Hand Experience Before Drafting</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">I am the subject-matter expert for [topic]. Interview me before writing. Ask me 20 questions designed to surface first-hand experience, mistakes made, outcomes observed, tools used, comparisons, edge cases, and advice I would give differently today. Then convert my answers into raw material for a high-trust article.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> Google's own guidance rewards experience and non-commodity insight more than polished generic copy.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="trust article outline author methodology evidence">
+<div class="prompt-header">
+<div class="prompt-id">CW-03</div>
+<h3>Create a Trust-Forward Article Outline</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Using this topic — [topic] — create an article outline that makes trust visible. Include where to show the author, where to add methodology, where to cite evidence, where to explain limitations, where to add a last-updated note only if genuinely updated, and where to include practical next-step guidance for readers.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It aligns content structure with trust, transparency, and useful page experience.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="author profile page bio byline credentials structured data">
+<div class="prompt-header">
+<div class="prompt-id">CW-04</div>
+<h3>Draft Author and Profile-Page Assets</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">For this author — [bio/details] — create: a concise byline, a fuller author bio, a profile page outline, and a structured-data-ready summary of credentials, experience, focus topics, and public profiles. Also tell me where this author information should appear across articles to strengthen trust and author disambiguation.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> Google documents both author clarity and profile-page markup as useful signals for understanding creators.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="refresh content update dateModified fake freshness">
+<div class="prompt-header">
+<div class="prompt-id">CW-05</div>
+<h3>Refresh Content Without Fake Freshness</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Audit this existing article — [paste text or URL notes] — for refresh opportunities. Separate updates into: factual changes required, sections to expand, sections to remove, examples to replace, trust signals to add, and elements that should not be changed just to look 'fresh.' Recommend whether the page deserves a new dateModified signal or whether that would be misleading.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> Google warns against changing dates without substantial updates and puts the focus on meaningful improvement.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="ai quality control generic overconfident repetitive draft">
+<div class="prompt-header">
+<div class="prompt-id">CW-06</div>
+<h3>Run an AI-Assisted Quality-Control Pass</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Review this draft for AI-era content risks — [paste draft]. Flag sentences that sound generic, overconfident, repetitive, derivative, or unsupported. Then rewrite only the weak sections to sound more specific, more human, and more useful. Keep all claims faithful to the source material and do not invent evidence.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It treats AI as a drafting helper, not a mass-content machine, which matches Google's guidance.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="entity markup structured data schema article organization">
+<div class="prompt-header">
+<div class="prompt-id">CW-07</div>
+<h3>Add Entity Markup That Matches Visible Content</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Using this homepage or article page content — [paste] — recommend the most appropriate structured data from this list: Article, BlogPosting, Organization, WebSite, ProfilePage, Product, Breadcrumb, or none. Only include markup that is supported by the visible page content. Also tell me what should stay out of schema because it is not actually present on the page.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> Google explicitly says structured data should match visible content and be validated accurately.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="ymyl trust audit health finance legal safety eeat">
+<div class="prompt-header">
+<div class="prompt-id">CW-08</div>
+<h3>Apply a YMYL Trust Audit When Needed</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">This page is in a potentially YMYL area: [health/finance/legal/safety/etc.]. Audit the draft for trust risks, weak expertise signals, unsupported advice, and missing accountability elements. Then recommend what needs expert review, what disclaimers are useful, what evidence should be added, and what claims should be softened or removed.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> Google says strong E-E-A-T matters even more for topics that can affect health, finances, safety, or well-being.</div>
+</div></div>
+</div>
+
+</div>
+
+<!-- MEASUREMENT & AI -->
+<div class="prompts-container active" data-cat="mx" id="cat-mx">
+
+<div class="prompt-card" data-search="search console insights triage growth winning decline">
+<div class="prompt-header">
+<div class="prompt-id">MX-01</div>
+<h3>Triage Growth Opportunities from Search Console Insights</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Use these Search Console Insights outputs — [paste] — to create an action plan. Separate pages and queries into: keep winning, refresh soon, urgent decline, and content expansion opportunities. Then tell me which opportunities are likely SEO fixes versus content fixes versus brand-demand effects.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It converts simplified Insights data into practical editorial decisions.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="search console ga4 analytics combine priority engagement conversion">
+<div class="prompt-header">
+<div class="prompt-id">MX-02</div>
+<h3>Combine Search Console and GA4 for Prioritization</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Using this Search Console export and GA4 landing-page export — [paste] — rank my SEO opportunities by combining visibility, click-through rate, engagement, and conversions. Return a table with: URL, main query set, visibility score, engagement quality, conversion value, recommended action, and why this opportunity should or should not be prioritized.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It mirrors Google's recommendation to use both tools together for a fuller picture.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="ai feature readiness geo audit snippet indexability">
+<div class="prompt-header">
+<div class="prompt-id">MX-03</div>
+<h3>Audit AI-Feature Readiness Without Hype</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Evaluate whether this page is well-positioned to be cited or surfaced in AI search experiences. Audit: indexability, snippet eligibility, internal discoverability, clarity of answer passages, usefulness of images/video, structured-data accuracy, and whether the content adds a unique perspective rather than repeating commodity facts. Do not recommend any fake 'GEO' hacks or special AI markup that Google does not require.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> Google explicitly says no special AI markup is needed and that standard SEO fundamentals still matter.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="ranking update traffic drop diagnosis post-update core">
+<div class="prompt-header">
+<div class="prompt-id">MX-04</div>
+<h3>Diagnose Losses After a Ranking Update</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">I saw a traffic drop around [date]. Create a post-update diagnosis workflow using Search Console. Tell me how to compare the right date ranges, how to separate small drops from large drops, how to isolate affected pages and queries, and how to distinguish between pages that need deeper improvements versus pages that should not be changed reactively.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It follows Google's documented core-update analysis process and avoids panic edits.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="content calendar demand signals trends evergreen seasonal">
+<div class="prompt-header">
+<div class="prompt-id">MX-05</div>
+<h3>Build a Content Calendar from Demand Signals</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">Using this combination of Google Trends notes, Search Console queries, and business seasonality — [paste] — build a 6- or 12-month content calendar. Mark each topic as evergreen, seasonal, rising, declining, or event-driven. For each month, recommend net-new pages, refreshes, internal-link pushes, and promotional timing.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It turns keyword insight into publishing operations.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="ctr rewrite impressions weak click title snippet">
+<div class="prompt-header">
+<div class="prompt-id">MX-06</div>
+<h3>Spot CTR Rewrite Opportunities at Scale</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">From this Search Console page/query dataset — [paste] — identify pages with strong impressions but weak CTR relative to their average position. For each, hypothesize whether the problem is title clarity, snippet weakness, mismatched intent, weak branding, poor date signaling, or absent SERP-enhancing elements like better media or clearer page focus. Recommend the highest-confidence rewrite test.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It uses real search behavior rather than theoretical copy preferences.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="publisher preferred sources audience brand growth">
+<div class="prompt-header">
+<div class="prompt-id">MX-07</div>
+<h3>Create a Publisher Preferred-Sources Plan</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">For this news or publishing site — [site details] — create a practical plan to grow direct audience preference and encourage readers to add the site as a preferred source. Include homepage messaging, on-site CTA placement, social promotion ideas, and audience segments most likely to respond. Also explain which parts of the strategy are brand growth and which are search-visibility support.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> Preferred sources is now part of Google's documented publisher surface, including AI features.</div>
+</div></div>
+</div>
+
+<div class="prompt-card" data-search="measurement publish 30 60 90 day plan metrics monitor">
+<div class="prompt-header">
+<div class="prompt-id">MX-08</div>
+<h3>Decide What to Measure After Publication</h3>
+<div class="prompt-toggle">▼</div>
+</div>
+<div class="prompt-body"><div class="prompt-content">
+<div class="prompt-text">For this new page or campaign — [details] — create a 30-, 60-, and 90-day SEO measurement plan. Include which metrics belong in Search Console, which belong in Analytics, which patterns indicate simple maturation versus a real problem, and what threshold should trigger a title rewrite, content refresh, internal-link push, or technical audit.<button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button></div>
+<div class="prompt-why"><strong>Why it's better:</strong> It keeps the workflow grounded in the tools Google itself recommends for monitoring search and on-site performance.</div>
+</div></div>
+</div>
+
+</div>
+
+</section>
+
+<!-- REFERENCES -->
+<section class="section" id="references">
+<div class="section-header reveal">
+<div class="section-tag">Sources</div>
+<h2 class="section-title">References &amp; Documentation</h2>
+<p class="section-desc">Every prompt in this library is grounded in current Google Search Central and Bing Webmaster documentation.</p>
+</div>
+<div class="refs-grid reveal">
+<a class="ref-card" href="https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history" target="_blank" rel="noopener">
+<div class="ref-num">[1]</div>
+<div class="ref-title">History for Ranking | Google Search Status Dashboard</div>
+<div class="ref-url">status.search.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noopener">
+<div class="ref-num">[2] [14]</div>
+<div class="ref-title">AI Features and Your Website | Google Search Central</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/appearance/structured-data/faqpage" target="_blank" rel="noopener">
+<div class="ref-num">[3]</div>
+<div class="ref-title">Latest Google Search Documentation Updates</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing" target="_blank" rel="noopener">
+<div class="ref-num">[4] [21]</div>
+<div class="ref-title">Mobile-first Indexing Best Practices</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" target="_blank" rel="noopener">
+<div class="ref-num">[5] [27] [28]</div>
+<div class="ref-title">Creating Helpful, Reliable, People-First Content</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/appearance/title-link" target="_blank" rel="noopener">
+<div class="ref-num">[6] [11] [12]</div>
+<div class="ref-title">Influencing Title Links in Google Search</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/monitor-debug/google-analytics-search-console" target="_blank" rel="noopener">
+<div class="ref-num">[7] [8] [34] [36] [39]</div>
+<div class="ref-title">Using Search Console and GA4 Data for SEO</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/essentials" target="_blank" rel="noopener">
+<div class="ref-num">[9]</div>
+<div class="ref-title">Google Search Essentials (Webmaster Guidelines)</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/monitor-debug/trends-start" target="_blank" rel="noopener">
+<div class="ref-num">[10]</div>
+<div class="ref-title">Get Started with Google Trends</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/appearance/snippet" target="_blank" rel="noopener">
+<div class="ref-num">[13]</div>
+<div class="ref-title">How to Write Meta Descriptions</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/crawling-indexing/links-crawlable" target="_blank" rel="noopener">
+<div class="ref-num">[15]</div>
+<div class="ref-title">SEO Link Best Practices for Google</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/appearance/structured-data/organization" target="_blank" rel="noopener">
+<div class="ref-num">[16]</div>
+<div class="ref-title">Organization Schema Markup</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/crawling-indexing/robots/intro" target="_blank" rel="noopener">
+<div class="ref-num">[17] [18]</div>
+<div class="ref-title">Robots.txt Introduction and Guide</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap" target="_blank" rel="noopener">
+<div class="ref-num">[19]</div>
+<div class="ref-title">Build and Submit a Sitemap</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls" target="_blank" rel="noopener">
+<div class="ref-num">[20]</div>
+<div class="ref-title">How to Specify a Canonical</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics" target="_blank" rel="noopener">
+<div class="ref-num">[22]</div>
+<div class="ref-title">Understand JavaScript SEO Basics</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/specialty/ecommerce/help-google-understand-your-ecommerce-site-structure" target="_blank" rel="noopener">
+<div class="ref-num">[23]</div>
+<div class="ref-title">Ecommerce Website Navigation Structure</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/appearance/core-web-vitals" target="_blank" rel="noopener">
+<div class="ref-num">[24]</div>
+<div class="ref-title">Understanding Core Web Vitals</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/specialty/international/localized-versions" target="_blank" rel="noopener">
+<div class="ref-num">[25]</div>
+<div class="ref-title">Localized Versions of Your Pages</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a" target="_blank" rel="noopener">
+<div class="ref-num">[26]</div>
+<div class="ref-title">Webmaster Guidelines - Bing Webmaster Tools</div>
+<div class="ref-url">bing.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/fundamentals/using-gen-ai-content" target="_blank" rel="noopener">
+<div class="ref-num">[27] [31] [32]</div>
+<div class="ref-title">Google's Guidance on Generative AI Content</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/appearance/publication-dates" target="_blank" rel="noopener">
+<div class="ref-num">[30]</div>
+<div class="ref-title">Add a Byline Date to Google Search Results</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://support.google.com/webmasters/answer/16308503" target="_blank" rel="noopener">
+<div class="ref-num">[35]</div>
+<div class="ref-title">Insights Report - Search Console Help</div>
+<div class="ref-url">support.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/appearance/core-updates" target="_blank" rel="noopener">
+<div class="ref-num">[37]</div>
+<div class="ref-title">Google Search's Core Updates</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+<a class="ref-card" href="https://developers.google.com/search/docs/appearance/preferred-sources" target="_blank" rel="noopener">
+<div class="ref-num">[38]</div>
+<div class="ref-title">Guide to Preferred Sources for Web Publishers</div>
+<div class="ref-url">developers.google.com</div>
+</a>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>⚡ 2026 SEO Prompt Library — Built on current Google Search Central &amp; Bing Webmaster documentation.</p>
+<p style="margin-top:8px;font-size:.75rem">All prompts are designed for responsible SEO practice. Always verify with live data.</p>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// NAV SCROLL
+const nav = document.getElementById('topnav');
+const btt = document.getElementById('btt');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+  btt.classList.toggle('show', window.scrollY > 600);
+});
+
+// NAV TOGGLE
+document.getElementById('navToggle').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+
+// NAV LINKS CLOSE MOBILE
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+});
+
+// PROMPT ACCORDION
+document.querySelectorAll('.prompt-header').forEach(header => {
+  header.addEventListener('click', () => {
+    const card = header.parentElement;
+    card.classList.toggle('open');
+  });
+});
+
+// COPY PROMPT
+function copyPrompt(btn) {
+  const textEl = btn.parentElement;
+  const text = textEl.textContent.replace('📋 Copy', '').replace('✅ Copied!', '').trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✅ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 Copy';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
+// CATEGORY TABS
+const tabs = document.querySelectorAll('.cat-tab');
+const containers = document.querySelectorAll('.prompts-container');
+const countEl = document.getElementById('visibleCount');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const cat = tab.dataset.cat;
+    containers.forEach(c => {
+      if (cat === 'all') {
+        c.classList.add('active');
+      } else {
+        c.classList.toggle('active', c.dataset.cat === cat);
+      }
+    });
+    updateCount();
+  });
+});
+
+// SEARCH
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.toLowerCase().trim();
+  document.querySelectorAll('.prompt-card').forEach(card => {
+    const searchData = (card.dataset.search || '') + ' ' + card.textContent.toLowerCase();
+    const match = !q || searchData.includes(q);
+    card.style.display = match ? '' : 'none';
+  });
+  updateCount();
+});
+
+function updateCount() {
+  const visible = document.querySelectorAll('.prompt-card[style=""], .prompt-card:not([style])').length;
+  const total = document.querySelectorAll('.prompt-card').length;
+  // Count only visible ones
+  let count = 0;
+  document.querySelectorAll('.prompt-card').forEach(c => {
+    if (c.style.display !== 'none' && c.closest('.prompts-container.active')) count++;
+  });
+  countEl.textContent = count;
+}
+
+// SCROLL REVEAL
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ACTIVE NAV LINK
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const top = section.offsetTop - 120;
+    if (window.scrollY >= top) current = section.getAttribute('id');
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+
+// INITIAL COUNT
+updateCount();
+</script>
+</body>
+</html>
