@@ -1,0 +1,54 @@
+name: Best Web Developer SEO AEO GEO Integrity
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'bwd-seo/**'
+      - '.github/workflows/bwd-seo-integrity.yml'
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      full:
+        description: 'Full crawl of all historical GSC and sitemap URLs (resource-intensive)'
+        type: boolean
+        required: false
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: bestwebdeveloper-seo-integrity
+  cancel-in-progress: false
+jobs:
+  read-only-integrity:
+    name: Crawl technical eligibility without modifying WordPress
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout monitoring repository
+        uses: actions/checkout@v4
+      - name: Configure Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify crawler source compiles
+        run: python -m py_compile bwd-seo/scripts/seo_integrity.py
+      - name: Test the entire historical register and robots/future post safety
+        run: python -m unittest discover -s bwd-seo/tests -v
+      - name: Live read-only audit (275 URLs rotating each 6h)
+        shell: bash
+        run: |
+          EXTRA=""
+          if [[ "${{ github.event.inputs.full }}" == "true" ]]; then EXTRA="--full"; fi
+          python bwd-seo/scripts/seo_integrity.py \
+            --baseline bwd-seo/data/gsc-baseline.csv \
+            --scheduled bwd-seo/data/scheduled-future-posts.csv \
+            --output bwd-seo/reports --batch-size 275 --workers 2 $EXTRA
+      - name: Upload audit records, including on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bwd-seo-integrity-${{ github.run_number }}
+          path: bwd-seo/reports/
+          retention-days: 30
+          if-no-files-found: warn
